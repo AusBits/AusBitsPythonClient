@@ -3,7 +3,7 @@ import json
 
 from lib.auth import Auth
 
-BASE_URL = 'https://peatio.com'
+BASE_URL = 'https://ausbits.com.au'
 
 API_BASE_PATH = '/api/v2'
 API_PATH_DICT = {

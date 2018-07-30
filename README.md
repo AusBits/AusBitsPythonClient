@@ -1,7 +1,7 @@
-peatio-client-python
+AusBits-client-python
 ====================
 
-A simple python client for Crypto Trade Site [Peatio.com](http://peatio.com)
+A simple python client for Digital Assets Exchange [Ausbits.com.au](http://ausbits.com.au)
 
 ## Usage ##
 
@@ -41,25 +41,25 @@ res = client.get(url)
 #if your access key and secret are correct, res should be a json like this:
 
 {
-    u'email': u'zhaoyu.johnny@@gmail.com', 
-    u'activated': True, 
-    u'sn': u'PEAA*******', 
+    u'email': u'zhaoyu.johnny@@gmail.com',
+    u'activated': True,
+    u'sn': u'PEAA*******',
     u'name': u'JohnnyZhao',
-    u'accounts': 
+    u'accounts':
         [
-            {u'currency': u'cny', 
-             u'balance': u'1000', 
-             u'locked': u'0.0'}, 
-            {u'currency': u'btc', 
-             u'balance': u'31', 
-             u'locked': u'0.0'}, 
-            {u'currency': u'pts', 
-             u'balance': u'60', 
-             u'locked': u'0.0'}, 
-            {u'currency': u'dog', 
-             u'balance': u'23952', 
+            {u'currency': u'aud',
+             u'balance': u'1000',
+             u'locked': u'0.0'},
+            {u'currency': u'btc',
+             u'balance': u'31',
+             u'locked': u'0.0'},
+            {u'currency': u'pts',
+             u'balance': u'60',
+             u'locked': u'0.0'},
+            {u'currency': u'dog',
+             u'balance': u'23952',
              u'locked': u'11.0'}
-        ], 
+        ],
 }
 
 ```
@@ -75,9 +75,9 @@ print markets
 #markets should be a json like this
 
 [
-    {u'id': u'btccny', u'name': u'BTC/CNY'}, 
-    {u'id': u'ptscny', u'name': u'PTS/CNY'}, 
-    {u'id': u'dogcny', u'name': u'DOG/CNY'}, 
+    {u'id': u'btcaud', u'name': u'BTC/AUD'},
+    {u'id': u'ptsaud', u'name': u'PTS/AUD'},
+    {u'id': u'dogaud', u'name': u'DOG/AUD'},
     {u'id': u'dogbtc', u'name': u'DOG/BTC'}
 ]
 
@@ -95,27 +95,27 @@ print orders
 #orders will be an empty list or json like this
 
 [
-    {u'created_at': u'2014-07-05T14:56:25+08:00', 
-     u'remaining_volume': u'11.0', 
-     u'price': u'0.01', 
-     u'side': u'sell', 
-     u'volume': u'11.0', 
-     u'state': u'wait', 
-     u'avg_price': u'0.0', 
-     u'executed_volume': u'0.0', 
-     u'id': 299751, 
-     u'market': u'dogcny'
+    {u'created_at': u'2014-07-05T14:56:25+08:00',
+     u'remaining_volume': u'11.0',
+     u'price': u'0.01',
+     u'side': u'sell',
+     u'volume': u'11.0',
+     u'state': u'wait',
+     u'avg_price': u'0.0',
+     u'executed_volume': u'0.0',
+     u'id': 299751,
+     u'market': u'dogaud'
     }
 ]
 
 #create new order
 #sell 10 dogecoins at price 0.01
-params = {'market': 'dogcny', 'side': 'sell', 'volume': 10, 'price': 0.01}
+params = {'market': 'dogaud', 'side': 'sell', 'volume': 10, 'price': 0.01}
 res = client.post(get_api_path('orders'), params)
 print res
 
 #buy 10 dogecoins at price 0.001
-params = {'market': 'dogcny', 'side': 'buy', 'volume': 10, 'price': 0.001}
+params = {'market': 'dogaud', 'side': 'buy', 'volume': 10, 'price': 0.001}
 res = client.post(get_api_path('orders'), params)
 print res
 
@@ -127,7 +127,7 @@ print res
 #delete a specific order by order_id
 #first, let's create an sell order
 #sell 10 dogecoins at price 0.01
-params = {'market': 'dogcny', 'side': 'sell', 'volume': 12, 'price': 0.01}
+params = {'market': 'dogaud', 'side': 'sell', 'volume': 12, 'price': 0.01}
 res = client.post(get_api_path('orders'), params)
 print res
 order_id = res['id']
@@ -137,14 +137,14 @@ params = {"id": order_id}
 res = client.post(get_api_path('delete_order'), params)
 
 #create multi orders
-params = {'market': 'dogcny', 'orders': [{'side': 'buy', 'volume': 12, 'price': 0.0002}, {'side': 'sell', 'volume': 11, 'price': 0.01}]}
+params = {'market': 'dogaud', 'orders': [{'side': 'buy', 'volume': 12, 'price': 0.0002}, {'side': 'sell', 'volume': 11, 'price': 0.01}]}
 res = client.post(get_api_path('multi_orders'), params)
 
 ```
 
 ## More demos ##
 
-### for more usage demos, checkout [demo.py](https://github.com/JohnnyZhao/peatio-client-python/blob/master/demo.py) file ###
+### for more usage demos, checkout [demo.py](https://github.com/Ausbits/AusBitsPythonClient/blob/master/demo.py) file ###
 
 ## Contribute ##
 

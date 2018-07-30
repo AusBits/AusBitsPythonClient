@@ -28,16 +28,16 @@ for market in markets:
     print client.get(get_api_path('orders'), {'market': market['id']})
 
 #get order book
-print client.get(get_api_path('order_book'), params={'market': 'btccny'})
+print client.get(get_api_path('order_book'), params={'market': 'btcaud'})
 
 #get tardes
-print client.get(get_api_path('trades'), params={'market': 'btccny'})
+print client.get(get_api_path('trades'), params={'market': 'btcaud'})
 
 #get my trades
-print client.get(get_api_path('my_trades'), params={'market': 'btccny'})
+print client.get(get_api_path('my_trades'), params={'market': 'btcaud'})
 
 #get k line
-print client.get(get_api_path('k'), params={'market': 'btccny'})
+print client.get(get_api_path('k'), params={'market': 'btcaud'})
 
 
 #demo of POST APIs
@@ -48,12 +48,12 @@ markets =  client.get(get_api_path('markets'))
 print markets
 
 #sell 10 dogecoins at price 0.01
-params = {'market': 'dogcny', 'side': 'sell', 'volume': 10, 'price': 0.01}
+params = {'market': 'dogaud', 'side': 'sell', 'volume': 10, 'price': 0.01}
 res = client.post(get_api_path('orders'), params)
 print res
 
 #buy 10 dogecoins at price 0.001
-params = {'market': 'dogcny', 'side': 'buy', 'volume': 10, 'price': 0.001}
+params = {'market': 'dogaud', 'side': 'buy', 'volume': 10, 'price': 0.001}
 res = client.post(get_api_path('orders'), params)
 print res
 
@@ -64,7 +64,7 @@ print res
 
 #first, let's create an sell order
 #sell 10 dogecoins at price 0.01
-params = {'market': 'dogcny', 'side': 'sell', 'volume': 12, 'price': 0.01}
+params = {'market': 'dogaud', 'side': 'sell', 'volume': 12, 'price': 0.01}
 res = client.post(get_api_path('orders'), params)
 print res
 order_id = res['id']
@@ -75,7 +75,7 @@ res = client.post(get_api_path('delete_order'), params)
 print res
 
 #create multi orders
-params = {'market': 'dogcny', 'orders': [{'side': 'buy', 'volume': 12, 'price': 0.0002}, {'side': 'sell', 'volume': 11, 'price': 0.01}]}
+params = {'market': 'dogaud', 'orders': [{'side': 'buy', 'volume': 12, 'price': 0.0002}, {'side': 'sell', 'volume': 11, 'price': 0.01}]}
 res = client.post(get_api_path('multi_orders'), params)
 print res
 """
